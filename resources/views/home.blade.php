@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@import "resourse/sass/app.scss";
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

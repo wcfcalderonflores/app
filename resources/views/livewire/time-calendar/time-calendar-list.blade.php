@@ -133,50 +133,6 @@
     </div>
   </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#term').on('keyup', function() {
-                var term = $(this).val();
-
-                if (term.length >= 3) {
-                    $.ajax({
-                        url: '/buscar',
-                        type: 'GET',
-                        data: {term: term},
-                        success: function(response) {
-                            mostrarResultados(response);
-                        }
-                    });
-                } else {
-                    $('#resultados').empty();
-                }
-            });
-
-            function mostrarResultados(personals) {
-                $('#resultados').empty();
-
-                if (personals.length > 0) {
-                    personals.forEach(function(personal) {
-                        var resultado = '<li><a href="#" onclick="seleccionarPersona(\'' + personal.name + '\')">' + personal.name + ' ' + personal.last_name + '</a></li>';
-                        $('#resultados').append(resultado);
-                    });
-                } else {
-                    $('#resultados').append('<li>No se encontraron resultados</li>');
-                }
-            }
-
-            function seleccionarPersona(name) {
-              $('#term').val(name);
-              $('#resultados').empty();
-          }
-          $(document).on('click', 'a', function(){
-            seleccionarPersona($(this).text());
-          })
-
-        });
-    </script>
-
 
   <?php
   // Obtener el número de días del mes actual
@@ -199,15 +155,10 @@
 
       echo '<tr><td>' . $nombre_dia . '</td><td>' . $dia . '/</td><td>' . $mes_actual . '/</td><td>' . $anio_actual . '</td>
         <td>
-            <div class="col-md-6">
-                <label for="validationCustom04" class="form-label"></label>
-                <select class="" id="validationCustom04" wire:model.defer="" >
-                    <option value="">---Select---</option>
-
-                        <option value="DG"/>GD</option>
-                        <option value="DN"/>GN</option>
-
-                </select>
+            <div  class="col-md-4">
+                <input style="margin: 5px 1px"  class="form-control" type="text" id="term" placeholder="Turno">
+                 <ul id="resultados"></ul>
+               </div>
 
             </div>
         </td>
@@ -216,6 +167,53 @@
 
   echo '</table>';
   ?>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+      $(document).ready(function() {
+          $('#term').on('keyup', function() {
+              var term = $(this).val();
+
+              if (term.length >= 3) {
+                  $.ajax({
+                      url: '/buscar',
+                      type: 'GET',
+                      data: {term: term},
+                      success: function(response) {
+                          mostrarResultados(response);
+                      }
+                  });
+              } else {
+                  $('#resultados').empty();
+              }
+          });
+
+          function mostrarResultados(personals) {
+              $('#resultados').empty();
+
+              if (personals.length > 0) {
+                  personals.forEach(function(personal) {
+                      var resultado = '<li><a href="#" onclick="seleccionarPersona(\'' + personal.name + '\')">' + personal.name + ' ' + personal.last_name + '</a></li>';
+                      $('#resultados').append(resultado);
+                  });
+              } else {
+                  $('#resultados').append('<li>No se encontraron resultados</li>');
+              }
+          }
+
+          function seleccionarPersona(name) {
+            $('#term').val(name);
+            $('#resultados').empty();
+        }
+        $(document).on('click', 'a', function(){
+          seleccionarPersona($(this).text());
+        })
+
+      });
+  </script>
+
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>
