@@ -7,7 +7,7 @@
             <div class="row mt-3" >
               <div  class="col-md-5">
                 <input class="form-control" id="term" type="text" placeholder="Buscar Persona"  />
-                <ul id="resultados"></ul>
+                <ul id="resultados">ff</ul>
               </div>
               <div  class="col-md-3">
                 <input type="month" class="form-control" wire:change="listarDias($event.target.value)" />
