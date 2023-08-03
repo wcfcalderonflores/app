@@ -18,15 +18,15 @@
       </div>
     </div>
 
-    @if ($paintCalendar)
-      @php
+    <?php if($paintCalendar): ?>
+      <?php
         $num_dias_mes_actual = cal_days_in_month(CAL_GREGORIAN, $mes, $anio);
         $nombre_mes_actual = strftime('%B', strtotime("{$anio}-{$mes}-01")); // Obtener el nombre del mes en español
 
         // Nombres de los días en español
         $nombres_dias = array('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado');
-      @endphp
-      <div> Mes: {{$nombre_mes_actual}}</div>
+      ?>
+      <div> Mes: <?php echo e($nombre_mes_actual); ?></div>
       <table class="table">
         <thead class="table-light">
           <tr>
@@ -36,7 +36,7 @@
           </tr>
         </thead>
         <tbody>
-          @php
+          <?php
               for ($dia = 1; $dia <= $num_dias_mes_actual; $dia++) {
                 $fecha_actual = date($anio . '-' . $mes . '-' . $dia); // Crear la fecha con el formato "YYYY-MM-DD"
                 $nombre_dia = $nombres_dias[date('w', strtotime($fecha_actual))]; // Obtener el nombre del día de la semana en español
@@ -54,8 +54,9 @@
                       </td>
                   </tr>';
               }
-          @endphp
+          ?>
         </tbody>
       </table>
-    @endif
+    <?php endif; ?>
 </div>
+<?php /**PATH C:\Users\WILLIAN\Documents\GitHub\app\resources\views/livewire/time-calendar/time-calendar-list.blade.php ENDPATH**/ ?>
