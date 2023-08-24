@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class TimeCalendar extends Model
 {
     use HasFactory;
-    protected $fillable = [];
+    protected $fillable = [''];
+
  }

@@ -8,7 +8,7 @@ use Livewire\WithPagination;
 
 class TimeTableList extends Component
 {
-    public $search;
+    public $search='';
     use WithPagination;
     protected $listeners = ['list-time-table' =>'$refresh'];
     public function render()
@@ -18,6 +18,8 @@ class TimeTableList extends Component
                                     ->orWhere('code','LIKE','%'.$this->search.'%')
                                     ->paginate(10);
         return view('livewire.time-table.time-table-list', compact('timeTables'));
+
+
     }
 
     public function deleteTimeTable($id){

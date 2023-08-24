@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TimeTable as ModelsTimeTable;
 use Illuminate\Http\Request;
 
 class timeTable extends Controller
@@ -14,5 +15,7 @@ class timeTable extends Controller
     public function timeCalendar(){
         return view('timeCalendar.index');
     }
+
+
 
 }

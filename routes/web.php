@@ -34,14 +34,3 @@ Route::get('timeCalendar',[timeTable::class,'timeCalendar'])->name('timeTable.ti
 
 Route::get('/buscar', [personalController::class, 'buscar'])->name('buscar');
 
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/ruta-protegida', 'Controlador@accion')->middleware('auth');
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

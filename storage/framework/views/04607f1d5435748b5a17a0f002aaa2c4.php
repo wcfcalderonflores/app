@@ -1,4 +1,6 @@
+
 <div>
+
     <div class="row">
       <div class="col-lg-12">
 
@@ -6,11 +8,11 @@
           <div class="card-body">
             <div class="row mt-3" >
               <div  class="col-md-5">
-                <input class="form-control" id="term" type="text" placeholder="Buscar Persona"  />
-                <ul id="resultados"></ul>
+                <input class="form-control" id="term" type="text" wire:change="ShowSearch($event.target.value)"  placeholder="Buscar Persona"/>
+              <div> <u id="resultados" ></u></div>
               </div>
               <div  class="col-md-3">
-                <input type="month" class="form-control" wire:change="listarDias($event.target.value)" />
+                <input type="month" class="form-control"  wire:change="listarDias($event.target.value)" />
               </div>
             </div>
           </div>
@@ -46,11 +48,12 @@
                         <td>' . $dia . '/' . $mes . '/' . $anio . '</td>
                       <td>
                           <div  class="col-md-4">
-                              <input style="margin: 5px 1px"  class="form-control" type="text" id="term" placeholder="Turno">
-                              <ul id="resultados"></ul>
+                              <input style="margin: 5px 1px"  class="form-control" type="text" id="term" placeholder="Turno"/>
+                              <div> <u id="resultados"></u></div>
                             </div>
 
-                          </div>
+
+
                       </td>
                   </tr>';
               }
@@ -58,5 +61,7 @@
         </tbody>
       </table>
     <?php endif; ?>
+
 </div>
+
 <?php /**PATH C:\Users\WILLIAN\Documents\GitHub\app\resources\views/livewire/time-calendar/time-calendar-list.blade.php ENDPATH**/ ?>
