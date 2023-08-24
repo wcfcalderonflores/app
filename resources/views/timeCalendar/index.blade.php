@@ -18,7 +18,7 @@
               "positionClass": "toast-top-right",
           }
           window.addEventListener('hide-form', event =>{
-              $('#modalTimeCalendar').modal('hide');
+              $('#listarDias').modal('hide');
           });
           window.addEventListener('toastr', event =>{
               toastr.success(event.detail.message,'Exito!');
@@ -31,9 +31,26 @@
       });
   </script>
   <script>
-    window.addEventListener('show-modal-position', event =>{
-        $('#modalTimeCalendar').modal('show');
+    window.addEventListener('show-modal-timeCalendar', event =>{
+        $('#listarDias').modal('show');
     });
-  </script>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    document.addEventListener('livewire:load', function(){
+        $('.select2').select2();
+        $('.select2').on('change',function(){
+           // alert(this.value)
+
+        });
+    })
+</script>
+<script>
+    // Inicializar Select2 para el campo de selección "search"
+    $(document).ready(function() {
+        $('#searchField').select2();
+    });
+</script>
   </x-slot>
 </x-layout.app>

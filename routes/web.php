@@ -7,6 +7,10 @@ use App\Http\Controllers\TimeLogController;
 use App\Http\Controllers\timeTable;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Livewire\Prueba\ShowTester;
+use Livewire\Livewire;
+use App\Http\Controllers\ShowTesterController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,14 +38,7 @@ Route::get('timeCalendar',[timeTable::class,'timeCalendar'])->name('timeTable.ti
 
 Route::get('/buscar', [personalController::class, 'buscar'])->name('buscar');
 
+Route::get('timeTab',[ShowTesterController::class,'index'])->name('prueba.index');
 
+Route::get('/prueba/show-tester', ShowTester::class)->name('prueba.showTester');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/ruta-protegida', 'Controlador@accion')->middleware('auth');
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

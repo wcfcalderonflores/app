@@ -9,6 +9,7 @@ use Livewire\WithPagination;
 class PersonalList extends Component
 {
     public $search;
+    public $personals;
     use WithPagination;
     protected $listeners = ['list-personal' =>'$refresh'];
 
@@ -25,6 +26,9 @@ class PersonalList extends Component
                                 ->orderBy('id')
                                 ->paginate(10);
         return view('livewire.personal.personal-list',compact('personals'));
+        return view('livewire.time-calendar.time-calendar-list',  compact('personals'));
+
+
     }
     public function nameTypeContract($data){
         switch ($data) {

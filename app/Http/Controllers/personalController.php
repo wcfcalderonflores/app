@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Timelog;
 use Illuminate\Http\Request;
 use App\Models\Personal;
-
+use App\Models\TimeCalendar;
 
 class personalController extends Controller
 {
@@ -35,9 +35,4 @@ class personalController extends Controller
         return response()->json($personals);
     }
 
-    public function timeLogPersonal(){
-        $data = Timelog::where('number_document','=','42407339')->get();
-        //dd($data);
-        return view('timeLog.personal', compact('data'));
-    }
 }
